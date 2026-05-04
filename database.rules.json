@@ -1,0 +1,28 @@
+{
+  "rules": {
+    "users": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null && auth.uid === $uid"
+      }
+    },
+    "vendors": {
+      "$uid": {
+        ".read": "auth != null",
+        ".write": "auth != null && auth.uid === $uid"
+      }
+    },
+    "products": {
+      ".read": "auth != null",
+      "$pid": {
+        ".write": "auth != null"
+      }
+    },
+    "orders": {
+      ".read": "auth != null",
+      "$oid": {
+        ".write": "auth != null"
+      }
+    }
+  }
+}
